@@ -1,0 +1,13 @@
+<h1>Register</h1>
+<form method="POST">
+    {% csrf_token %}
+    Username: {{form.username}}
+    <br>
+    e-Mail: {{form.email}}
+    <br>
+    Password: {{form.password1}}
+    <br>
+    Repeat Password: {{form.password2}}
+    <br>
+<button type="submit">Register</button>
+</form>

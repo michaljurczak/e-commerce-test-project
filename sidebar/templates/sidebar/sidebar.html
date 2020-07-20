@@ -1,0 +1,5 @@
+<div class="sidenav">
+    {% for category in categories %}
+        <a href="{% url 'category_view' category=category.name %}">{{category.name}}</a>
+    {% endfor %}
+</div>

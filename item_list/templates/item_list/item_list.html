@@ -1,0 +1,20 @@
+<ul>
+    {% for result in results %}
+    <div class="item-list">
+        <a href="{% url 'item_detail_view' category=result.category slug=result.slug%}" >
+            <li>
+                <img class="item-image" src="{{result.image.url}}" alt="">
+                    <div style="display: block; text-align: center">
+                        <h3>{{result.name}}</h3> <h4>${{result.price}}</h4>
+                    </div>
+                </li>
+            </a>
+            {% if user.is_authenticated %}
+                <form action="{% url 'add_to_cart_view' result.name %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Add to cart</button>
+                </form>
+            {% endif %}
+    </div>
+    {% endfor %}
+</ul>

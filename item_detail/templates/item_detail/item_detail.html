@@ -1,0 +1,14 @@
+<div>
+    <img class="image-item-detail" src="{{product.image.url}}" alt="">
+    <div class="item-detail">
+        <p>{{product.name}}</p>
+        <p>{{product.description}}</p>
+        <p>Quantity: {{product.quantity}}</p>
+        {% if user.is_authenticated %}
+                <form action="{% url 'add_to_cart_view' product.name %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" >Add to cart</button>
+                </form>
+            {% endif %}
+    </div>
+</div>

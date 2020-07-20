@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MJStore</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'navigation_bar/css/navigation_bar.css' %}">
+        <link rel="stylesheet" href="{% static 'sidebar/css/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'mjstore_main/css/mjstore_main.css' %}">
+        <link rel="stylesheet" href="{% static 'item_list/css/item_list.css' %}">
+        <link rel="stylesheet" href="{% static 'item_detail/css/item_detail.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+
+    <body>
+        {% include 'sidebar/sidebar.html' %}
+        <div class="main">
+            {% include 'navigation_bar/navbar.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+        <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>

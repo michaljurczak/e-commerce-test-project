@@ -1,0 +1,12 @@
+{% extends 'mjstore_main/base.html' %}
+
+{% block content %}
+
+<script type="text/javascript">
+    function test_script() {
+        alert('Welcome to the MJSTORE {{user.username}}');
+    }
+    </script>
+    <button onclick="test_script()">Welcome!</button>
+    {% include 'item_list/item_list.html' %}
+{% endblock %}

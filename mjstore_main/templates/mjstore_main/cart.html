@@ -1,0 +1,38 @@
+{% extends 'mjstore_main/base.html' %}
+
+{% block content %}
+<h1>Pending orders</h1>
+<table>
+    <tr>
+        <th>Order Number</th>
+        <th>Product Name</th>
+        <th>Status</th>
+        <th>Cancel Order</th>
+    </tr>
+    {% for order in orders %}
+        <tr>
+            <th>{{order.order}} </th>
+            <th><a href="{% url 'item_detail_view' order.product.category order.product.slug %}">{{order.product.name}}</a></th>
+            <th>{{order.get_status_display}}</th>
+            <th><a class="btn btn-danger" type="button" href="{% url 'delete_order_view' order.order%}">X</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<h1>Orders</h1>
+<table>
+    <tr>
+        <th>Order Number</th>
+        <th>Product Name</th>
+        <th>Status</th>
+    </tr>
+    {% for history_order in history_orders %}
+        <tr>
+            <th>{{history_order.order}} </th>
+            <th><a href="{% url 'item_detail_view' history_order.product.category history_order.product.slug %}">{{history_order.product.name}}</a></th>
+            <th>{{history_order.get_status_display}}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

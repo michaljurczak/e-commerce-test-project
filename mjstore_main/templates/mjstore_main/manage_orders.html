@@ -1,0 +1,29 @@
+{% extends 'mjstore_main/base.html' %}
+
+{% block content %}
+    <h1>Manage orders</h1>
+<table>
+    <tr>
+        <th>Order Number</th>
+        <th>User</th>
+        <th>Product Name</th>
+        <th>Status</th>
+        <th>Update Order</th>
+    </tr>
+    {% for order in orders %}
+        <tr>
+            <th>{{order.order}} </th>
+            <th>{{order.user}} </th>
+            <th><a href="{% url 'item_detail_view' order.product.category order.product.slug %}">{{order.product.name}}</a></th>
+            <form action="{% url 'update_order_view' order.order%}" method="POST">
+                    {% csrf_token %}
+            <th>{{order.form.status}}</th>
+            <th>
+                <button class="btn btn-success" type="submit">Update</button>
+            </th>
+        </form>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

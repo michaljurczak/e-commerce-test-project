@@ -1,0 +1,12 @@
+.item-list {
+    border: 1px solid black;
+    list-style: none;
+    display: inline-block;
+    margin: 40px;
+    padding: 10px;
+}
+
+.item-image {
+    max-height: 300px;
+    display: block;
+}
